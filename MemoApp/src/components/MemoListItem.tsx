@@ -1,20 +1,25 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { Entypo } from '@expo/vector-icons'
+
+import { Link } from 'expo-router'
 
 export const MemoListItem = (): JSX.Element => {
   return (
-    <View>
+    <Link href='/memo/detail' asChild>
+      <TouchableOpacity>
 
-        <View style={styles.memoListItem}>
-            <View>
-                <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-                <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
-            </View>
-            <View>
-                <Text>X</Text>
-            </View>
-        </View>
+          <View style={styles.memoListItem}>
+              <View>
+                  <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+                  <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
+              </View>
+              <TouchableOpacity>
+                  <Entypo name='cross'size={30} color='#B0B0B0'/>
+              </TouchableOpacity>
+          </View>
 
-    </View>
+      </TouchableOpacity>
+    </Link>
   )
 }
 
