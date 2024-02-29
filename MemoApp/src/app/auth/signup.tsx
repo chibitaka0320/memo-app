@@ -1,12 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { useState } from 'react'
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { Link, router } from 'expo-router'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 import { Button } from '../../components/Button'
+import { auth } from '../../config'
 
-const handlePress = (): void => {
-  // サインアップ
-  router.replace('/memo/list')
+const handlePress = (email: string, password: string): void => {
+  // 会員登録
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      router.replace('/memo/list')
+    })
+    .catch((error) => {
+      const { message } = error
+      Alert.alert(message)
+    })
 }
 
 const Signup = (): JSX.Element => {
@@ -34,7 +44,7 @@ const Signup = (): JSX.Element => {
               placeholder='Password'
               textContentType='password'
             />
-            <Button label='Submit' onPress={handlePress} />
+            <Button label='Submit' onPress={() => { handlePress(email, password) }} />
             <View style={styles.footer}>
                 <Text style={styles.footerText}>Already registerd?</Text>
                 <Link href='/auth/login' asChild>
