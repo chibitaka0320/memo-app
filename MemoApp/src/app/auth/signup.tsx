@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { useState } from 'react'
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { Link, router } from 'expo-router'
@@ -15,6 +14,7 @@ const handlePress = (email: string, password: string): void => {
     })
     .catch((error) => {
       const { message } = error
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       Alert.alert(message)
     })
 }
@@ -47,7 +47,7 @@ const Signup = (): JSX.Element => {
             <Button label='Submit' onPress={() => { handlePress(email, password) }} />
             <View style={styles.footer}>
                 <Text style={styles.footerText}>Already registerd?</Text>
-                <Link href='/auth/login' asChild>
+                <Link href='/auth/login' asChild replace>
                     <TouchableOpacity>
                         <Text style={styles.footerLink}>Log in.</Text>
                     </TouchableOpacity>
