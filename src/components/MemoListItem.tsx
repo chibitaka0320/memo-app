@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 
-const MemoListItem = () => {
+const MemoListItem = (): JSX.Element => {
   return (
     <View style={styles.memoListItem}>
       <View>

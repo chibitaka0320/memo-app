@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Header from "../components/Header";
 import MemoListItem from "../components/MemoListItem";
+import CircleButton from "../components/CircleButtonl";
 
 const Index = (): JSX.Element => {
   return (
@@ -13,9 +14,7 @@ const Index = (): JSX.Element => {
         <MemoListItem />
       </View>
 
-      <View style={styles.circleButton}>
-        <Text style={styles.circleButtonLabel}>＋</Text>
-      </View>
+      <CircleButton />
     </View>
   );
 };
@@ -24,45 +23,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFFFFF",
-  },
-  memoListItem: {
-    backgroundColor: "#FFFFFF",
-    borderBottomWidth: 1,
-    borderColor: "rgba(0,0,0,0.15)",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 16,
-    paddingHorizontal: 19,
-  },
-  memoListItemTitle: {
-    fontSize: 16,
-    lineHeight: 32,
-  },
-  memoListItemDate: {
-    fontSize: 12,
-    lineHeight: 16,
-    color: "#848484",
-  },
-  circleButton: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: "#467FD3",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
-    right: 40,
-    bottom: 40,
-    shadowColor: "#000000",
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 8 },
-  },
-  circleButtonLabel: {
-    color: "#FFFFFF",
-    fontSize: 40,
-    lineHeight: 48,
   },
 });
 
