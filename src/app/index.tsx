@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import Header from "../components/Header";
+import MemoListItem from "../components/MemoListItem";
 
 const Index = (): JSX.Element => {
   return (
@@ -7,35 +8,9 @@ const Index = (): JSX.Element => {
       <Header />
 
       <View>
-        <View style={styles.memoListItem}>
-          <View>
-            <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-            <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
-          </View>
-          <View>
-            <Text>X</Text>
-          </View>
-        </View>
-
-        <View style={styles.memoListItem}>
-          <View>
-            <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-            <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
-          </View>
-          <View>
-            <Text>X</Text>
-          </View>
-        </View>
-
-        <View style={styles.memoListItem}>
-          <View>
-            <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-            <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
-          </View>
-          <View>
-            <Text>X</Text>
-          </View>
-        </View>
+        <MemoListItem />
+        <MemoListItem />
+        <MemoListItem />
       </View>
 
       <View style={styles.circleButton}>
