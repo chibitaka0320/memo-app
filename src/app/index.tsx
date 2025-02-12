@@ -11,30 +11,30 @@ const Index = (): JSX.Element => {
       </View>
 
       <View>
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>買い物リスト</Text>
-            <Text>2023年10月1日 10:00</Text>
+            <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+            <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
           </View>
           <View>
             <Text>X</Text>
           </View>
         </View>
 
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>買い物リスト</Text>
-            <Text>2023年10月1日 10:00</Text>
+            <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+            <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
           </View>
           <View>
             <Text>X</Text>
           </View>
         </View>
 
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>買い物リスト</Text>
-            <Text>2023年10月1日 10:00</Text>
+            <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+            <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
           </View>
           <View>
             <Text>X</Text>
@@ -74,6 +74,25 @@ const styles = StyleSheet.create({
     right: 16,
     bottom: 16,
     color: "rgba(255,255,255,0.7)",
+  },
+  memoListItem: {
+    backgroundColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    borderColor: "rgba(0,0,0,0.15)",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 16,
+    paddingHorizontal: 19,
+  },
+  memoListItemTitle: {
+    fontSize: 16,
+    lineHeight: 32,
+  },
+  memoListItemDate: {
+    fontSize: 12,
+    lineHeight: 16,
+    color: "#848484",
   },
 });
 
