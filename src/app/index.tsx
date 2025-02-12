@@ -14,7 +14,7 @@ const Index = (): JSX.Element => {
         <MemoListItem />
       </View>
 
-      <CircleButton />
+      <CircleButton>＋</CircleButton>
     </View>
   );
 };
