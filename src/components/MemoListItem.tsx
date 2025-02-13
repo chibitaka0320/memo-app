@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
 const MemoListItem = (): JSX.Element => {
   return (
@@ -8,7 +9,9 @@ const MemoListItem = (): JSX.Element => {
         <Text style={styles.memoListItemDate}>2023年10月1日 10:00</Text>
       </View>
       <View>
-        <Text>X</Text>
+        <Text>
+          <Entypo name="cross" size={24} />
+        </Text>
       </View>
     </View>
   );

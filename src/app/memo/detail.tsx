@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { Foundation } from "@expo/vector-icons";
 import Header from "../../components/Header";
 import CircleButton from "../../components/CircleButtonl";
 
@@ -18,7 +18,7 @@ const Detail = (): JSX.Element => {
         </Text>
       </ScrollView>
       <CircleButton style={{ top: 160, bottom: "auto" }}>
-        <Feather name="plus" size={40} />
+        <Foundation name="pencil" size={38} />
       </CircleButton>
     </View>
   );
