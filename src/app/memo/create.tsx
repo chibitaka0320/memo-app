@@ -1,28 +1,55 @@
-import {
-  View,
-  TextInput,
-  StyleSheet,
-  KeyboardAvoidingView,
-} from "react-native";
-import CircleButton from "../../components/CircleButton";
+import { View, TextInput, StyleSheet } from "react-native";
 
 import { FontAwesome6 } from "@expo/vector-icons";
 import { router } from "expo-router";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { auth, db } from "../../config";
+import { useState } from "react";
+import CircleButton from "../../components/CircleButton";
+import { useKeyboardHeight } from "../../components/useKeyboardHeight";
 
-const handlePress = (): void => {
-  router.back();
+const handlePress = (bodyText: string): void => {
+  if (!auth.currentUser) {
+    return;
+  }
+  const ref = collection(db, `users/${auth.currentUser.uid}/memos`);
+  addDoc(ref, {
+    bodyText,
+    updatedAt: Timestamp.fromDate(new Date()),
+  })
+    .then(() => {
+      router.back();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 const Create = (): JSX.Element => {
+  const [bodyText, setBodyText] = useState<string>("");
+  const keyboardHeight = useKeyboardHeight();
+
   return (
-    <KeyboardAvoidingView behavior="height" style={styles.container}>
+    <View style={[styles.container, { marginBottom: keyboardHeight }]}>
       <View style={styles.inputContainer}>
-        <TextInput multiline value="" style={styles.input} />
+        <TextInput
+          multiline
+          value={bodyText}
+          style={styles.input}
+          onChangeText={(text) => {
+            setBodyText(text);
+          }}
+          autoFocus
+        />
       </View>
-      <CircleButton onPress={handlePress}>
+      <CircleButton
+        onPress={() => {
+          handlePress(bodyText);
+        }}
+      >
         <FontAwesome6 name="check" size={38} color="#FFFFFF" />
       </CircleButton>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 
