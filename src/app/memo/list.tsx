@@ -1,5 +1,4 @@
 import { View, StyleSheet } from "react-native";
-import Header from "../../components/Header";
 import MemoListItem from "../../components/MemoListItem";
 import CircleButton from "../../components/CircleButton";
 import { Feather } from "@expo/vector-icons";
@@ -12,8 +11,6 @@ const handlePress = (): void => {
 const List = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Header />
-
       <View>
         <MemoListItem />
         <MemoListItem />
