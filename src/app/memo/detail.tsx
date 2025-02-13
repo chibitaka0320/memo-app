@@ -1,7 +1,12 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { Foundation } from "@expo/vector-icons";
 import Header from "../../components/Header";
-import CircleButton from "../../components/CircleButtonl";
+import CircleButton from "../../components/CircleButton";
+import { router } from "expo-router";
+
+const handlePress = (): void => {
+  router.push("/memo/edit");
+};
 
 const Detail = (): JSX.Element => {
   return (
@@ -17,7 +22,7 @@ const Detail = (): JSX.Element => {
           本文用なので使い方を間違えると不自然に見えることもありますので要注意。
         </Text>
       </ScrollView>
-      <CircleButton style={{ top: 160, bottom: "auto" }}>
+      <CircleButton style={{ top: 160, bottom: "auto" }} onPress={handlePress}>
         <Foundation name="pencil" size={38} />
       </CircleButton>
     </View>

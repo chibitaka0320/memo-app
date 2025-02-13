@@ -5,9 +5,14 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import Header from "../../components/Header";
-import CircleButton from "../../components/CircleButtonl";
+import CircleButton from "../../components/CircleButton";
 
 import { FontAwesome6 } from "@expo/vector-icons";
+import { router } from "expo-router";
+
+const handlePress = (): void => {
+  router.back();
+};
 
 const Edit = (): JSX.Element => {
   return (
@@ -16,7 +21,7 @@ const Edit = (): JSX.Element => {
       <View style={styles.inputContainer}>
         <TextInput multiline value={"買い物\nリスト"} style={styles.input} />
       </View>
-      <CircleButton>
+      <CircleButton onPress={handlePress}>
         <FontAwesome6 name="check" size={38} color="#FFFFFF" />
       </CircleButton>
     </KeyboardAvoidingView>

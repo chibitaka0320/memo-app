@@ -12,9 +12,9 @@ interface Props {
 }
 
 const CircleButton = (props: Props): JSX.Element => {
-  const { children, style } = props;
+  const { children, style, onPress } = props;
   return (
-    <TouchableOpacity style={[styles.circleButton, style]}>
+    <TouchableOpacity style={[styles.circleButton, style]} onPress={onPress}>
       <Text style={styles.circleButtonLabel}>{children}</Text>
     </TouchableOpacity>
   );

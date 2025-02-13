@@ -7,6 +7,12 @@ import {
 } from "react-native";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+import { Link, router } from "expo-router";
+
+const handlePress = (): void => {
+  // ログイン
+  router.push("/memo/list");
+};
 
 const Login = (): JSX.Element => {
   return (
@@ -16,12 +22,14 @@ const Login = (): JSX.Element => {
         <Text style={styles.title}>Login</Text>
         <TextInput style={styles.input} value="Email address" />
         <TextInput style={styles.input} value="Password" />
-        <Button label="Submit" />
+        <Button label="Submit" onPress={handlePress} />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registerd?</Text>
-          <TouchableOpacity>
-            <Text style={styles.footerLink}>Sign up here!</Text>
-          </TouchableOpacity>
+          <Link href="/auth/signup" asChild>
+            <TouchableOpacity>
+              <Text style={styles.footerLink}>Sign up here!</Text>
+            </TouchableOpacity>
+          </Link>
         </View>
       </View>
     </View>
